@@ -1,41 +1,28 @@
 # InfectionControlXR
 
-What happens after a learner touches a bed rail, a bedside monitor, and an equipment trolley? InfectionControlXR turns those contacts into a visible trail in a Unity hospital room. Learners can replay the scenario, change their actions, and compare the feedback.
+Touch a bed rail, a bedside monitor, and an equipment trolley in Room 204. Trace View reveals how simulated contamination moved through those contacts. Replay the scenario with hand hygiene between interactions, then compare the results.
 
-![First-person view inside the simulated patient room](Deliverables/build/img/r3_first_person_hands_build.jpg)
+**[Download the Unity project](https://github.com/Dhanush191205/InfectionControlXR/releases/download/v1.0.0/InfectionControlXR-source.zip)** · **[View the six-page walkthrough](https://github.com/Dhanush191205/InfectionControlXR/releases/download/v1.0.0/InfectionControlXR-Showcase.pdf)**
 
-[View the illustrated project walkthrough](Deliverables/InfectionControlXR-Showcase.pdf) � [Read the user guide](Assets/Documentation/README.md) � [Explore the C# implementation](Assets/Scripts)
+## Run the project
 
-## Try Room 204
+1. Download **InfectionControlXR-source.zip** using the project link above and extract it.
+2. In Unity Hub, add the extracted folder containing `Assets`, `Packages`, and `ProjectSettings`. Open it with Unity **6000.6.5f1** and allow the initial import to finish.
+3. Open `Assets/Scenes/MainMenu.unity`, press **Play**, and choose the contaminated patient room.
+4. Move with **WASD**, look with the mouse, and interact with **E**. Press **F** to inspect the transfer pathway. Press **R** to restart.
 
-1. Install Unity **6000.6.5f1** through Unity Hub and make Git available on your PATH for the Git-based package dependency.
-2. Clone the repository, add its root folder in Unity Hub, and let Unity restore the packages and import the assets.
-3. Open `Assets/Scenes/MainMenu.unity`, press **Play**, and start the contaminated patient room training.
-4. Use **WASD** and the mouse to move and look. Press **E** to touch the bed rail, monitor, and trolley in sequence. Press **F** to reveal the simulated transfer pathway.
-5. Press **R** to restart. Try a different sequence with hand hygiene and compare the trace.
+## Training scenarios
 
-## What you can explore
-
-| Scenario | What the learner can investigate |
+| Scenario | What learners practise |
 | --- | --- |
-| Patient room | How successive contacts carry simulated contamination between surfaces |
-| Five Moments | Which actions the scenario records as hand hygiene opportunities |
-| Multi-bed ward | How movement between patient zones changes the contact history |
-| Environmental cleaning | How wipe use and cleaning order appear in the session report |
-| PPE practice | How the order of donning and doffing affects simulated self-contamination |
+| Patient room | Trace successive contacts between surfaces |
+| Five Moments | Identify hand hygiene opportunities during care |
+| Multi-bed ward | Follow contacts across patient zones |
+| Environmental cleaning | Review wipe use and cleaning order |
+| Protective equipment | Practise donning and doffing and review simulated self-contact |
 
-The transfer model illustrates how contacts connect. Its values are educational simulation parameters and do not estimate clinical infection risk.
+## Implementation
 
-## How it works
+Desktop and OpenXR input use shared C# training commands and scoring. The package includes the Unity scenes, C# source, automated tests, user guide, and asset credits. The transfer model uses illustrative values for teaching. Physical Quest testing is pending. 
 
-Desktop input and OpenXR controller input reach the same interaction and training commands. The simulation tracks contacts and hygiene actions. Trace View exposes the resulting pathway during play, and the session report summarizes decisions for review.
-
-| Project area | Entry point |
-| --- | --- |
-| Scenes and environments | [Unity scenes](Assets/Scenes) |
-| Rules and transfer mechanics | [Contamination model](Assets/Documentation/v2/CTE_Model.md) |
-| Automated checks | [EditMode and PlayMode suites](Assets/Tests) |
-| PC VR setup and controller bindings | [Quest Link guide](Assets/Documentation/v2/PC_VR_QuestLink_Guide.md) |
-| Models, textures, audio and credits | [Third-party notices](THIRD_PARTY_NOTICES.md) |
-
-**Platform status.** Desktop is the quickest way to try the project. The Windows OpenXR path supports Quest Link / Air Link and has been exercised with simulated controllers. Physical headset tracking, comfort, and performance still need validation.
+[View the LinkedIn demonstration](https://www.linkedin.com/feed/update/urn:li:activity:7530269066536787968/)
